@@ -53,8 +53,8 @@ router.post('/login', (req,res) => {
 //send OTP
 router.post('/otp',(req,res) => {
     const otp = Math.floor(1000 + Math.random() * 9000)
-    const requestId = sendOTP(otp,req.body.email);
-    res.send({verify: otp});
+    const requestId = sendOTP(req.body.otp,req.body.email);
+    res.send({email_res: requestId});
 
 })
 
